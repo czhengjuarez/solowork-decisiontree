@@ -162,28 +162,53 @@ Works in all modern browsers:
 
 ## 🚢 Deployment Options
 
+### Cloudflare Workers (Recommended)
+
+This project is configured to deploy to Cloudflare Workers automatically via GitHub Actions.
+
+#### Setup:
+
+1. **Get Cloudflare API Token**:
+   - Go to Cloudflare Dashboard → My Profile → API Tokens
+   - Create token with "Edit Cloudflare Workers" permissions
+   - Copy the token
+
+2. **Add to GitHub Secrets**:
+   - Go to your repo → Settings → Secrets and variables → Actions
+   - Click "New repository secret"
+   - Name: `CLOUDFLARE_API_TOKEN`
+   - Value: Paste your API token
+   - Click "Add secret"
+
+3. **Deploy**:
+   - Push to `main` branch
+   - GitHub Actions will automatically deploy
+   - Your site will be live at: `https://solowork-decisiontree.<your-subdomain>.workers.dev`
+
+#### Manual Deploy:
+
+```bash
+npm install
+npx wrangler deploy
+```
+
+#### Project Structure:
+```
+DecisionTreeApp/
+├── public/              # Static files (HTML, CSS, JS)
+├── src/
+│   └── index.js        # Worker script
+├── wrangler.toml       # Cloudflare configuration
+├── package.json        # Dependencies
+└── .github/workflows/
+    └── deploy.yml      # Auto-deploy configuration
+```
+
 ### GitHub Pages
 1. Create a GitHub repo
 2. Upload these files
 3. Enable GitHub Pages in settings
 4. Access at: `https://username.github.io/repo-name/`
-
-### GitLab Pages
-1. Create a `.gitlab-ci.yml`:
-```yaml
-pages:
-  script:
-    - mkdir .public
-    - cp -r * .public
-    - mv .public public
-  artifacts:
-    paths:
-      - public
-  only:
-    - main
-```
-2. Push to GitLab
-3. Access at: `https://username.gitlab.io/repo-name/`
 
 ### Netlify/Vercel
 1. Drag and drop the folder
