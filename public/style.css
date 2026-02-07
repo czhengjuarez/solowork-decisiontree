@@ -66,7 +66,7 @@ body {
   width: 100%;
   background: white;
   border: 1px solid var(--gray-200);
-  border-radius: 12px;
+  border-radius: 0;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   overflow: hidden;
 }
@@ -232,7 +232,7 @@ main {
   padding: 12px 16px;
   background: white;
   border: 1px solid var(--gray-200);
-  border-radius: 8px;
+  border-radius: 0;
   font-size: 14px;
   color: var(--gray-700);
   cursor: pointer;
@@ -279,7 +279,7 @@ main {
   padding: 8px 16px;
   background: var(--primary-700);
   color: white;
-  border-radius: 6px;
+  border-radius: 0;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -329,7 +329,7 @@ main {
   background: var(--primary-50);
   border-left: 3px solid var(--primary-700);
   padding: 12px 16px;
-  border-radius: 6px;
+  border-radius: 0;
   margin-top: 12px;
   text-align: left;
 }
@@ -343,7 +343,7 @@ main {
 .answers-summary {
   background: var(--gray-50);
   border: 1px solid var(--gray-200);
-  border-radius: 8px;
+  border-radius: 0;
   padding: 16px;
   margin-bottom: 20px;
   text-align: left;
@@ -390,7 +390,7 @@ main {
   justify-content: center;
   padding: 8px 16px;
   border: none;
-  border-radius: 6px;
+  border-radius: 0;
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
@@ -581,7 +581,7 @@ html {
 
 .task-type-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   margin-bottom: 24px;
 }
@@ -589,7 +589,7 @@ html {
 .task-type-card {
   background: white;
   border: 2px solid var(--gray-200);
-  border-radius: 8px;
+  border-radius: 0;
   padding: 20px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -604,12 +604,12 @@ html {
 
 .task-type-icon {
   display: inline-block;
-  background: var(--primary-700);
+  background: var(--gray-800);
   color: white;
   font-size: 11px;
   font-weight: 700;
   padding: 8px 14px;
-  border-radius: 6px;
+  border-radius: 0;
   margin-bottom: 12px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -670,7 +670,7 @@ html {
 .stage-card {
   background: var(--gray-50);
   border: 1px solid var(--gray-200);
-  border-radius: 8px;
+  border-radius: 0;
   padding: 16px;
   transition: all 0.2s ease;
 }
@@ -699,7 +699,7 @@ html {
   font-size: 11px;
   font-weight: 600;
   padding: 4px 10px;
-  border-radius: 12px;
+  border-radius: 0;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -737,7 +737,7 @@ html {
   margin-bottom: 8px;
   padding: 8px 12px;
   background: var(--primary-50);
-  border-radius: 4px;
+  border-radius: 0;
   border-left: 3px solid var(--primary-700);
 }
 
@@ -765,7 +765,7 @@ html {
 }
 
 /* Responsive adjustments for task types */
-@media (max-width: 640px) {
+@media (max-width: 480px) {
   .task-type-grid {
     grid-template-columns: 1fr;
   }
