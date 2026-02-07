@@ -4,15 +4,13 @@
   "description": "Solo vs Collaborate Decision Tree App",
   "main": "src/index.js",
   "scripts": {
-    "deploy": "wrangler deploy"
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev"
   },
   "keywords": ["decision-tree", "cloudflare-workers"],
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "wrangler": "^3.0.0"
-  },
-  "dependencies": {
-    "@cloudflare/kv-asset-handler": "^0.3.0"
   }
 }
