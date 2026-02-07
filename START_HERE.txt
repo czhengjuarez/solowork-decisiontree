@@ -1,0 +1,94 @@
+╔════════════════════════════════════════════════════════════════════╗
+║         DECISION FRAMEWORK: SOLO VS. COLLABORATE                   ║
+║                  Interactive Decision Tree App                     ║
+╚════════════════════════════════════════════════════════════════════╝
+
+✅ Your decision tree app is ready to use!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 QUICK START (Choose One):
+
+Option 1: DOUBLE-CLICK TO OPEN
+   → Simply double-click "index.html"
+   → It will open in your default browser
+   → Start using immediately!
+
+Option 2: LOCAL SERVER (Better Experience)
+   → Open Terminal
+   → cd to this folder
+   → Run: python3 -m http.server 8000
+   → Open browser: http://localhost:8000
+
+Option 3: VS CODE LIVE SERVER
+   → Open folder in VS Code
+   → Right-click index.html
+   → Select "Open with Live Server"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 HOW IT WORKS:
+
+This app helps you decide whether to work solo or collaborate by asking:
+
+1. What's the blast radius if this goes wrong?
+2. Do I understand the system context?
+3. How complex is the logic?
+4. Is this learning or production work?
+5. What's the time constraint?
+
+Based on your answers, it recommends:
+   🚀 Work Solo
+   👤➡️👥 Solo with Review
+   🤔➡️👥 Start Solo, Pair if Stuck
+   🔬➡️👥 Solo, Then Collaborate
+   👥 Collaborate Upfront
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✨ FEATURES:
+
+✓ Self-contained (no installation needed)
+✓ Works offline
+✓ Beautiful, interactive UI
+✓ Progress tracking
+✓ Export results to text file
+✓ Mobile-friendly
+✓ No data collection
+✓ Completely private
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 FILES:
+
+   index.html    - Main app (open this!)
+   style.css     - Styling
+   script.js     - Logic
+   README.md     - Full documentation
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 USE CASES:
+
+• Before starting a task: "Should I do this alone?"
+• Team discussions: Facilitate collaboration decisions
+• Onboarding: Help new team members understand norms
+• Retrospectives: Review past decisions
+• Documentation: Share decision framework
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚢 SHARING:
+
+Want to share with your team?
+
+1. Copy this folder to shared drive
+2. Deploy to GitHub Pages/GitLab Pages
+3. Host on internal server
+4. Send folder via Slack/email
+
+See README.md for deployment instructions!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Ready to make better decisions? Open index.html now! 🎉

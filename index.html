@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decision Framework: Solo vs. Collaborate</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Decision Framework</h1>
+      <p class="subtitle">Solo vs. Collaborate</p>
+    </header>
+
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+      <div class="progress-text" id="progressText">Question 1 of 5</div>
+    </div>
+
+    <main id="mainContent">
+      <!-- Welcome Screen -->
+      <div id="welcomeScreen" class="screen active">
+        <div class="welcome-content">
+          <div class="icon-text">?</div>
+          <h2>Should You Work Solo or Collaborate?</h2>
+          <p>Answer 5 quick questions to find out the best approach for your task.</p>
+          <button class="btn btn-primary" onclick="startDecisionTree()">Start Decision Tree</button>
+        </div>
+      </div>
+
+      <!-- Question Screen -->
+      <div id="questionScreen" class="screen">
+        <div class="question-card">
+          <div class="question-number" id="questionNumber">Question 1 of 5</div>
+          <h2 class="question-text" id="questionText"></h2>
+          <div class="options" id="optionsContainer"></div>
+        </div>
+      </div>
+
+      <!-- Results Screen -->
+      <div id="resultsScreen" class="screen">
+        <div class="results-card">
+          <div class="result-icon" id="resultIcon"></div>
+          <h2 class="result-title" id="resultTitle"></h2>
+          <div class="result-description" id="resultDescription"></div>
+          
+          <div class="answers-summary">
+            <h3>Your Answers:</h3>
+            <div id="answersSummary"></div>
+          </div>
+
+          <div class="action-buttons">
+            <button class="btn btn-secondary" onclick="resetTree()">Start Over</button>
+            <button class="btn btn-primary" onclick="exportResults()">Export Results</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>Decision Framework Tool</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
