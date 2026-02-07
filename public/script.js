@@ -3,7 +3,7 @@ const taskTypes = {
   'internal-tool': {
     name: 'Internal Tool Development',
     description: 'Building tools for your team or organization',
-    icon: '🛠️',
+    icon: 'TOOL',
     stages: [
       {
         stage: 'Initial prototype',
@@ -34,7 +34,7 @@ const taskTypes = {
   'feature-prototype': {
     name: 'Feature Prototyping',
     description: 'Exploring new product features and interactions',
-    icon: '🎨',
+    icon: 'PROTO',
     stages: [
       {
         stage: 'Wireframing in code',
@@ -65,7 +65,7 @@ const taskTypes = {
   'design-system': {
     name: 'Design System Contribution',
     description: 'Adding or updating shared components',
-    icon: '🎯',
+    icon: 'SYSTEM',
     stages: [
       {
         stage: 'Identifying need',
@@ -102,7 +102,7 @@ const taskTypes = {
   'bug-fix': {
     name: 'Production Bug Fixes',
     description: 'Fixing issues in live systems',
-    icon: '🐛',
+    icon: 'BUG',
     stages: [
       {
         stage: 'Identifying the issue',
