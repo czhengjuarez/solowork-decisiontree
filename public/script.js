@@ -1,3 +1,137 @@
+// Task Types with Stage-based Guidance
+const taskTypes = {
+  'internal-tool': {
+    name: 'Internal Tool Development',
+    description: 'Building tools for your team or organization',
+    icon: '🛠️',
+    stages: [
+      {
+        stage: 'Initial prototype',
+        approach: 'Solo',
+        why: 'Explore your own needs fast',
+        details: 'Start by building what you need. Your use case is the primary driver, and moving fast helps you iterate.'
+      },
+      {
+        stage: 'First working version',
+        approach: 'Solo',
+        why: 'Learn by doing',
+        details: 'Continue building independently to understand the problem space. This is your exploration phase.'
+      },
+      {
+        stage: 'Making it production-ready',
+        approach: 'Collaborate',
+        why: 'Engineers catch edge cases',
+        details: 'Bring in engineers to review security, error handling, performance, and edge cases you might have missed.'
+      },
+      {
+        stage: 'Deploying to team',
+        approach: 'Collaborate',
+        why: 'Ensure proper hosting and access control',
+        details: 'Work with engineers to set up proper deployment, monitoring, and access controls for team use.'
+      }
+    ]
+  },
+  'feature-prototype': {
+    name: 'Feature Prototyping',
+    description: 'Exploring new product features and interactions',
+    icon: '🎨',
+    stages: [
+      {
+        stage: 'Wireframing in code',
+        approach: 'Solo',
+        why: 'Speed matters for exploration',
+        details: 'Build quick, throwaway prototypes to test ideas. Code is faster than design tools for interaction exploration.'
+      },
+      {
+        stage: 'Creating interactive prototype',
+        approach: 'Solo',
+        why: 'Show, don\'t just describe',
+        details: 'Make it clickable and interactive so stakeholders can experience your vision, not just see screenshots.'
+      },
+      {
+        stage: 'Refining based on feedback',
+        approach: 'Solo',
+        why: 'Iterate quickly',
+        details: 'Take feedback and quickly update the prototype. You understand the vision and can move fast on your own.'
+      },
+      {
+        stage: 'Preparing for production',
+        approach: 'Collaborate',
+        why: 'Engineers refactor for system fit',
+        details: 'Work with engineers to translate prototype code into production-ready implementation that fits the system architecture.'
+      }
+    ]
+  },
+  'design-system': {
+    name: 'Design System Contribution',
+    description: 'Adding or updating shared components',
+    icon: '🎯',
+    stages: [
+      {
+        stage: 'Identifying need',
+        approach: 'Solo',
+        why: 'You notice the gap in your work',
+        details: 'Document the pattern you keep repeating or the inconsistency you keep encountering.'
+      },
+      {
+        stage: 'Creating proposal',
+        approach: 'Solo',
+        why: 'Show the use case with prototype',
+        details: 'Build a quick example showing how this component would be used in real scenarios.'
+      },
+      {
+        stage: 'Discussing approach',
+        approach: 'Collaborate',
+        why: 'Engineers assess feasibility and fit',
+        details: 'Present your proposal to engineers who can evaluate technical constraints and system-wide impact.'
+      },
+      {
+        stage: 'Building component',
+        approach: 'Collaborate',
+        why: 'System-wide impact requires partnership',
+        details: 'Pair with engineers to build the component properly, considering accessibility, performance, and reusability.'
+      },
+      {
+        stage: 'Documentation',
+        approach: 'Solo with engineer review',
+        why: 'You understand use case, they verify technical accuracy',
+        details: 'Write the usage documentation yourself, then have engineers review for technical correctness.'
+      }
+    ]
+  },
+  'bug-fix': {
+    name: 'Production Bug Fixes',
+    description: 'Fixing issues in live systems',
+    icon: '🐛',
+    stages: [
+      {
+        stage: 'Identifying the issue',
+        approach: 'Solo',
+        why: 'You found it, you understand it',
+        details: 'Document what you discovered, including steps to reproduce and expected vs. actual behavior.'
+      },
+      {
+        stage: 'Determining scope',
+        approach: 'Collaborate',
+        why: 'Is this actually a papercut or deeper issue?',
+        details: 'Discuss with engineers to understand if this is a simple fix or symptomatic of a larger problem.'
+      },
+      {
+        stage: 'Implementing fix',
+        approach: 'Solo if papercut, Collaborate if complex',
+        why: 'Scope determines approach',
+        details: 'Simple UI fixes can be done solo. Deeper issues involving data or business logic need engineering partnership.'
+      },
+      {
+        stage: 'Testing and review',
+        approach: 'Collaborate',
+        why: 'Production changes need verification',
+        details: 'Always have engineers review and test changes to production systems, regardless of simplicity.'
+      }
+    ]
+  }
+};
+
 // Decision Tree Data
 const questions = [
   {
@@ -90,11 +224,100 @@ const results = {
 // State
 let currentQuestionIndex = 0;
 let answers = [];
+let selectedTaskType = null;
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
   showScreen('welcomeScreen');
+  populateTaskTypes();
 });
+
+// Show task type selection screen
+function showTaskTypeScreen() {
+  showScreen('taskTypeScreen');
+}
+
+// Populate task type options
+function populateTaskTypes() {
+  const grid = document.getElementById('taskTypeGrid');
+  grid.innerHTML = '';
+  
+  Object.keys(taskTypes).forEach((key) => {
+    const taskType = taskTypes[key];
+    const card = document.createElement('div');
+    card.className = 'task-type-card';
+    card.innerHTML = `
+      <div class="task-type-icon">${taskType.icon}</div>
+      <h3>${taskType.name}</h3>
+      <p>${taskType.description}</p>
+    `;
+    card.onclick = () => showTaskTypeGuidance(key);
+    grid.appendChild(card);
+  });
+}
+
+// Show guidance for selected task type
+function showTaskTypeGuidance(taskTypeKey) {
+  selectedTaskType = taskTypeKey;
+  const taskType = taskTypes[taskTypeKey];
+  
+  document.getElementById('guidanceTitle').textContent = taskType.name;
+  document.getElementById('guidanceDescription').textContent = taskType.description;
+  
+  const stagesContainer = document.getElementById('guidanceStages');
+  stagesContainer.innerHTML = taskType.stages.map((stage, index) => `
+    <div class="stage-card">
+      <div class="stage-header">
+        <div class="stage-number">Stage ${index + 1}</div>
+        <div class="stage-approach ${stage.approach.toLowerCase().replace(/\s+/g, '-')}">${stage.approach}</div>
+      </div>
+      <h3 class="stage-name">${stage.stage}</h3>
+      <div class="stage-why">
+        <strong>Why:</strong> ${stage.why}
+      </div>
+      <p class="stage-details">${stage.details}</p>
+    </div>
+  `).join('');
+  
+  showScreen('guidanceScreen');
+}
+
+// Export task type guidance
+function exportGuidance() {
+  if (!selectedTaskType) return;
+  
+  const taskType = taskTypes[selectedTaskType];
+  const timestamp = new Date().toLocaleString();
+  
+  let content = `Task Type Guidance: ${taskType.name}\n`;
+  content += `Generated: ${timestamp}\n`;
+  content += `${'='.repeat(60)}\n\n`;
+  
+  content += `${taskType.description}\n\n`;
+  content += `${'='.repeat(60)}\n`;
+  content += `WORKFLOW STAGES:\n`;
+  content += `${'='.repeat(60)}\n\n`;
+  
+  taskType.stages.forEach((stage, index) => {
+    content += `STAGE ${index + 1}: ${stage.stage}\n`;
+    content += `${'-'.repeat(60)}\n`;
+    content += `Approach: ${stage.approach}\n`;
+    content += `Why: ${stage.why}\n`;
+    content += `Details: ${stage.details}\n\n`;
+  });
+  
+  content += `${'='.repeat(60)}\n`;
+  content += `End of Guidance\n`;
+  
+  // Download as text file
+  const blob = new Blob([content], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `task-guidance-${selectedTaskType}-${Date.now()}.txt`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
 
 // Start the decision tree
 function startDecisionTree() {

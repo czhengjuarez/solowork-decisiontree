@@ -24,8 +24,36 @@
         <div class="welcome-content">
           <div class="icon-text">?</div>
           <h2>Should You Work Solo or Collaborate?</h2>
-          <p>Answer 5 quick questions to find out the best approach for your task.</p>
-          <button class="btn btn-primary" onclick="startDecisionTree()">Start Decision Tree</button>
+          <p>Get personalized guidance for your specific task type, or use the general decision tree.</p>
+          <div class="welcome-buttons">
+            <button class="btn btn-primary" onclick="showTaskTypeScreen()">Choose Task Type</button>
+            <button class="btn btn-secondary" onclick="startDecisionTree()">Use General Questions</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task Type Selection Screen -->
+      <div id="taskTypeScreen" class="screen">
+        <div class="task-type-content">
+          <h2>What type of task are you working on?</h2>
+          <p class="task-type-subtitle">Select the task type that best matches your current work</p>
+          <div class="task-type-grid" id="taskTypeGrid"></div>
+          <button class="btn btn-text" onclick="showScreen('welcomeScreen')">← Back</button>
+        </div>
+      </div>
+
+      <!-- Task Type Guidance Screen -->
+      <div id="guidanceScreen" class="screen">
+        <div class="guidance-card">
+          <div class="guidance-header">
+            <h2 id="guidanceTitle"></h2>
+            <p id="guidanceDescription"></p>
+          </div>
+          <div class="guidance-stages" id="guidanceStages"></div>
+          <div class="action-buttons">
+            <button class="btn btn-secondary" onclick="showTaskTypeScreen()">← Choose Different Task</button>
+            <button class="btn btn-primary" onclick="exportGuidance()">Export Guidance</button>
+          </div>
         </div>
       </div>
 
